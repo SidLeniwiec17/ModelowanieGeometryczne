@@ -1,0 +1,29 @@
+﻿<Window x:Class="Modelowanie1vol3.EditTorus"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EditTorus" Height="200" Width="200" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="Duzych okregow :" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Column="0" Grid.Row="1" Content="Malych okregow :" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Column="0" Grid.Row="2" Content="Duzy promien :" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Column="0" Grid.Row="3" Content="Maly promien :" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <Button Grid.Column="1" Grid.Row="4" Content="OK" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" Click="Button_Click_1" />
+        <Button Grid.Column="0" Grid.Row="4" Content="Anuluj" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" Click="Button_Click" />
+        
+        <TextBox Name="DuzeKola" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Margin="5,5,5,5" TextWrapping="Wrap" Text="" VerticalAlignment="Stretch" />
+        <TextBox Name="MaleKola" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" Margin="5,5,5,5" TextWrapping="Wrap" Text="" VerticalAlignment="Stretch" />
+        <TextBox Name="DuzyProm" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" Margin="5,5,5,5" TextWrapping="Wrap" Text="" VerticalAlignment="Stretch" />
+        <TextBox Name="MalyProm" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" Margin="5,5,5,5" TextWrapping="Wrap" Text="" VerticalAlignment="Stretch" />
+    </Grid>
+</Window>

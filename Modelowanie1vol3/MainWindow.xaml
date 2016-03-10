@@ -1,0 +1,94 @@
+﻿<Window x:Class="Modelowanie1vol3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Modelowanie - Torus" Height="650" Width="925" MinHeight="650" MinWidth="925"
+        KeyDown="Window_KeyDown">
+
+    <Window.Resources>
+
+        <ContextMenu Name="contexMenu" x:Key="cmButton">
+            <MenuItem Name="itemDelete" Header="Usun " Click="MenuItem_Click_Delete"/>
+            <MenuItem Name="itemEdit" Header="Edytuj " Click="MenuItem_Click_Edit"/>
+        </ContextMenu>
+
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Column="0" Grid.Row="1" Name="CurrentImage"
+               Margin="5,5,5,5"
+               Stretch="Uniform"
+               SnapsToDevicePixels="True"
+               RenderOptions.BitmapScalingMode="Fant"/>
+        
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Dodaj Szescian" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="DodajSzescian_Click" Margin="5,5,5,5"/>
+            <Button Content="Dodaj Torus" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="DodajTorus_Click" Margin="5,5,5,5"/>
+
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <ListBox  Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="listBoxZone" ItemsSource="{Binding TheList}" Background="Azure">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Name="CheckBoxZone" GroupName="Group1" Content="{Binding TheText}" Tag="{Binding Index}" Checked="CheckBoxZone_Checked_1" MouseRightButtonDown="RadioButton_MouseRightButtonDown"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Skalowanie" HorizontalAlignment="Center" Margin="10,10,10,10" VerticalAlignment="Center"/>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <RepeatButton Name="SkalowanieLLb" Delay="500" Interval="100" Click="ScalowanieLL" Grid.Column="0" Content="&lt;&lt;" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" />
+                    <RepeatButton Name="SkalowanieLb" Delay="500" Interval="100" Click="ScalowanieL" Grid.Column="1" Content="&lt;" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" />
+                    <RepeatButton Name="SkalowanieRb" Delay="500" Interval="100" Click="ScalowanieP" Grid.Column="2" Content="&gt;" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" />
+                    <RepeatButton Name="SkalowanieRRb" Delay="500" Interval="100" Click="ScalowaniePP" Grid.Column="3" Content="&gt;&gt;" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" />
+                </Grid>
+                <!--<Label Grid.Row="2" Content="Projekcja" HorizontalAlignment="Center" Margin="10,10,10,10" VerticalAlignment="Center"/>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <RepeatButton Name="ProjekcjaLLb" Delay="500" Interval="100" Click="ProjekcjaLL" Grid.Column="0" Content="&lt;&lt;" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" />
+                    <RepeatButton Name="ProjekcjaLb" Delay="500" Interval="100" Click="ProjekcjaL" Grid.Column="1" Content="&lt;" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" />
+                    <RepeatButton Name="ProjekcjaRb" Delay="500" Interval="100" Click="ProjekcjaP" Grid.Column="2" Content="&gt;" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" />
+                    <RepeatButton Name="ProjekcjaRRb" Delay="500" Interval="100" Click="ProjekcjaPP" Grid.Column="3" Content="&gt;&gt;" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" />
+                </Grid>-->
+            </Grid>
+        </Grid>
+        
+    </Grid>
+</Window>

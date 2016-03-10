@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ModelowanieGeometryczne1.Properties
+namespace Modelowanie1vol3.Properties
 {
 
 
