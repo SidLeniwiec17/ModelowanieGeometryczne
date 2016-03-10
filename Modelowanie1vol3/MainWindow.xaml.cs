@@ -349,12 +349,13 @@ namespace Modelowanie1vol3
                         if (point2.W != 0)
                             w2 = point2.W;
 
+                        int newX1 = (int)((point1.X * CurrentImage.ActualWidth) / (2.0f * w1) + (CurrentImage.ActualWidth / 2.0f));
+                        int newY1 = (int)((point1.Y * CurrentImage.ActualHeight) / (2.0f * w1) + (CurrentImage.ActualHeight / 2.0f));
+                        int newX2 = (int)((point2.X * CurrentImage.ActualWidth) / (2.0f * w2) + (CurrentImage.ActualWidth / 2.0f));
+                        int newY2 = (int)((point2.Y * CurrentImage.ActualHeight) / (2.0f * w2) + (CurrentImage.ActualHeight / 2.0f));
+
                         using (var graphics = Graphics.FromImage(WorkspaceMapa))
                         {
-                            int newX1 = (int)((point1.X * CurrentImage.ActualWidth) / (2.0f * w1) + (CurrentImage.ActualWidth / 2.0f));
-                            int newY1 = (int)((point1.Y * CurrentImage.ActualHeight) / (2.0f * w1) + (CurrentImage.ActualHeight / 2.0f));
-                            int newX2 = (int)((point2.X * CurrentImage.ActualWidth) / (2.0f * w2) + (CurrentImage.ActualWidth/2.0f));
-                            int newY2 = (int)((point2.Y * CurrentImage.ActualHeight) / (2.0f * w2) + (CurrentImage.ActualHeight / 2.0f));
                             graphics.DrawLine(blackPen, newX1, newY1, newX2, newY2);
                         }
                     }
@@ -485,13 +486,13 @@ namespace Modelowanie1vol3
                               {0.0f,0.0f,0.0f,0.0f}
                               };
 
-            for (int y = 0; y < 4; y ++ )
+            Parallel.For(0, 4, y =>
             {
-                for(int x = 0; x < 4 ; x++)
+                for (int x = 0; x < 4; x++)
                 {
                     matrix[x, y] = Left[0, y] * Right[x, 0] + Left[1, y] * Right[x, 1] + Left[2, y] * Right[x, 2] + Left[3, y] * Right[x, 3];
                 }
-            }
+            });
             
             return matrix;
         }
@@ -663,6 +664,12 @@ namespace Modelowanie1vol3
             if (e.Key == Key.E)
                 moveObject(0, 0, -1, selectedObject);
 
+            Update();
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            initBitmap();
             Update();
         }
     }
